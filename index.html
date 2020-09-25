@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <script src="https://smtpjs.com/v3/smtp.js"></script>
+  </head>
+
+<body>
+
+
+
+<h2>Community Survey</h2>
+
+<form action="/action_page.php">
+
+<label for="endMsgTextBox">Name: </label><br>
+        <input type="text" id="endMsgTextBox" name="nameTextBox" required><br>
+
+<label for="numberTextBox">Phone Number: </label><br>
+<input type="text" id="endMsgTextBox2" name="numberTextBox" onfocusout="endMsg();" required><br><br>
+
+<div id="question1">
+  <label for="q1">Hi! Am I speaking to _______</label><br>
+
+
+<input type="radio" id="q1" name="answer" value="yes" onclick="section1Q1answer(this);">
+<label for="q1">Yes</label><br>
+
+<input type="radio" id="q1" name="answer" value="don't call again" onclick="section1DontCallAgain(this);">
+<label for="q1">Don't Call Again</label><br>
+
+<input type="radio" id="q1" name="answer" value="did not pick up" onclick="section1DidNotPickUp(this);">
+<label for="q1">Did Not Pick Up</label><br>
+
+  <input type="radio" id="q1" name="answer" value="deceased" onclick="section1Deceased(this);">
+<label for="q1">Deceased</label><br>
+
+   <input type="radio" id="q1" name="answer" value="call later" onclick="section1CallLater(this);">
+<label for="q1">Call Later</label><br>
+
+   <input type="radio" id="q1" name="answer" value="wrong number" onclick="section1WrongNumber(this);">
+ <label for="q1">Wrong Number</label><br><br>
+
+
+
+
+</div>
+
+<div id="question2" Style="display:none;">
+<label for="second">My name is ______ and I am a volunteer with a student led initiative called Empowered to gage community support on issues that affect voters like you. I was wondering if you had a second to share your opinions regarding the police in schools.</label><br>
+
+<input type="radio" id="second" name="opinion" value="yes" onclick="question2(this);">
+
+  <label for="second">Yes</label><br>
+
+  <input type="radio" id="second" name="opinion" value="no" onclick="answer2(this);">
+
+  <label for="second">No</label><br><br>
+</div>
+
+
+<div id="section1" Style="display:none;">
+
+  <label for="bq1">Did you or anyone you know go to a school with a law enforcement officer on campus?</label><br>
+
+   <input type="radio" id="bq1" name="LawEnforcementOnCampus" value="yes" onclick="section1Yes(this);">
+
+  <label for="bq1">Yes</label><br>
+
+  <input type="radio" id="bq1" name="LawEnforcementOnCampus" value="unsure" onclick="section1Unsure(this);">
+
+  <label for="bq1">Unsure</label><br>
+
+  <input type="radio" id="bq1" name="LawEnforcementOnCampus" value="no" onclick="section1No(this);">
+
+  <label for="bq1">No</label><br><br>
+</div>
+
+
+<div id="section2" Style="display:none;">
+
+
+ <label for="bq1YLv1">How did the officer on campus change the school experience for you?</label><br>
+
+   <input type="radio" id="bq1YLv1" name="OfficerCampusChange" value="positive" onclick="section2Positive(this);">
+
+  <label for="bq1YLv1">Positive</label><br>
+
+  <input type="radio" id="bq1YLv1" name="OfficerCampusChange" value="unsure" onclick="section2Unsure(this);">
+
+  <label for="bq1YLv1">Unsure</label><br>
+
+  <input type="radio" id="bq1YLv1" name="OfficerCampusChange" value="negative" onclick="section2Negative(this);">
+
+  <label for="bq1YLv1">Negative</label><br><br>
+</div>
+
+
+
+
+
+<div id="section9" Style="display:none;">
+
+<label for="bq1YLv8">What specifically about the campus officers made your campus experience like this?</label><br>
+        <input type="text" id="bq1YLv8" name="CampusExperience" onfocusout="section9();" required><br><br>
+
+  <label for="bq1YLv4">Do you believe that police officers should be present on school campuses if they have a negative impact on the student body?</label><br>
+
+   <input type="radio" id="bq1YLv4" name="ImpactOnStudentBody" value="yes" onclick="section5Yes(this);">
+
+  <label for="bq1YLv4">Yes</label><br>
+
+  <input type="radio" id="bq1YLv4" name="ImpactOnStudentBody" value="no" onclick="section5No(this);">
+
+  <label for="bq1YLv4">No</label><br><br>
+
+</div>
+
+
+<div id="section10" Style="display:none;">
+  <label for="bq1NLv1">If there was a police officer on campus, do you think that would have changed the school experience for you and the people you know?</label><br>
+
+   <input type="radio" id="bq1NLv1" name="PoliceChangeCampus" value="positive" onclick="section10Positive(this);">
+
+  <label for="bq1NLv1">Yes</label><br>
+
+<input type="radio" id="bq1NLv1" name="PoliceChangeCampus" value="unsure" onclick="section10Unsure(this);">
+
+  <label for="bq1NLv1">Unsure</label><br>
+
+  <input type="radio" id="bq1YLv5" name="PoliceChangeCampus" value="negative" onclick="section10Negative(this);">
+
+  <label for="bq1NLv1">Negative</label><br><br>
+</div>
+
+
+<div id="section11" Style="display:none;">
+
+<label for="bq1NLv2">What specifically about a police presence on campus would’ve made your experience like this?</label><br>
+        <input type="text" id="bq1NLv2" name="PolicePresenceCampusExperience" onfocusout="section11();" required><br><br>
+
+  <label for="bq1YLv4">Do you believe that police officers should be present on school campuses if they have a negative impact on the student body?</label><br>
+
+   <input type="radio" id="bq1YLv4" name="ImpactOnStudentBody" value="yes" onclick="section5Yes(this);">
+
+  <label for="bq1YLv4">Yes</label><br>
+
+  <input type="radio" id="bq1YLv4" name="ImpactOnStudentBody" value="no" onclick="section5No(this);">
+
+  <label for="bq1YLv4">No</label><br><br>
+</div>
+
+<div id="section3" Style="display:none;">
+  <label for="bq1YLv2">That's okay. Would you like to hear a story from a California student about their experiences with officers in schools?</label><br>
+
+   <input type="radio" id="bq1YLv2" name="Story" value="yes" onclick="section3Yes(this);">
+
+  <label for="bq1YLv2">Yes</label><br>
+
+  <input type="radio" id="bq1YLv2" name="Story" value="no" onclick="section3No(this);">
+
+  <label for="bq1YLv2">No</label><br><br>
+</div>
+
+<div id="section4" Style="display:none;">
+  <label for="bq1YLv3">Great! This following story was from an LA Times Article about a high school in Southern California. The police on campus were officially referred to as “school resource officers” just for clarification. After an altercation between two students broke out into a fight, the school resource officers went to the scene to stop it. However, the campus officers quickly turned the two person incident into a brawl after using pepper spray to diffuse the situation. The pepper spray was used on nearly 30 other students, mostly bystanders. Eight students were eventually detained and one had to be taken to the hospital.<br><br>
+Do you think that this behavior from officers should be condoned in schools?</label><br>
+
+   <input type="radio" id="bq1YLv3" name="StoryQ" value="yes" onclick="section4Yes(this);">
+
+  <label for="bq1YLv3">Yes</label><br>
+
+   <input type="radio" id="bq1YLv3" name="StoryQ" value="unsure" onclick="section4Unsure(this);">
+
+  <label for="bq1YLv3">Unsure</label><br>
+
+  <input type="radio" id="bq1YLv3" name="StoryQ" value="no" onclick="section4No(this);">
+
+  <label for="bq1YLv3">No</label><br><br>
+</div>
+
+<div id="section5" Style="display:none;">
+  <label for="bq1YLv4">Do you believe that police officers should be present on school campuses if they have a negative impact on the student body?</label><br>
+
+   <input type="radio" id="bq1YLv4" name="ImpactOnStudentBody" value="yes" onclick="section5Yes(this);">
+
+  <label for="bq1YLv4">Yes</label><br>
+
+  <input type="radio" id="bq1YLv4" name="ImpactOnStudentBody" value="no" onclick="section5No(this);">
+
+  <label for="bq1YLv4">No</label><br><br>
+</div>
+
+<div id="section6" Style="display:none;">
+  <label for="bq1YLv5">Would you like to hear how you can make this possible  in your community and California?</label><br>
+
+   <input type="radio" id="bq1YLv5" name="HowPossible" value="yes" onclick="section6Yes(this);">
+
+  <label for="bq1YLv5">Yes</label><br>
+
+  <input type="radio" id="bq1YLv5" name="HowPossible" value="no" onclick="section6No(this);">
+
+  <label for="bq1YLv5">No</label><br><br>
+</div>
+
+<div id="section7" Style="display:none;">
+  <label for="bq1YLv6">Would you be interested in signing up for an informational newsletter related to empowering and protecting our students and also hear about volunteer opportunities?</label><br>
+
+   <input type="radio" id="bq1YLv6" name="InterestedNewsletter" value="yes" onclick="section7Yes(this);">
+
+  <label for="bq1YLv6">Yes</label><br>
+
+  <input type="radio" id="bq1YLv6" name="InterestedNewsletter" value="no" onclick="section7No(this);">
+
+  <label for="bq1YLv6">No</label><br><br>
+</div>
+
+<div id="sec7siteMsg" Style="display:none;">
+<p>That's okay. You can still visit our website at empoweredusa.org. Thank you for taking the time to complete our survey! Have a great day!<p>
+</div>
+
+<div id="section8" Style="display:none;">
+<label for="bq1Ylv7">Great! Can I get your email address?</label><br><br>
+
+<label for="bq1Ylv7Email">Email: </label><br>
+<input type="text" id="bq1Ylv7Email" name="Email" onfocusout="section8();" required><br><br>
+
+<label for="ending">Thank you for your time. Just one more question, are you planning vote in November?</label><br>
+
+   <input type="radio" id="ending" name="PlanningToVote" value="yes" onclick="endMsg1Yes(this);">
+
+  <label for="ending">Yes</label><br>
+
+<input type="radio" id="ending" name="PlanningToVote" value="no" onclick="endMsg1No(this);">
+  <label for="ending">No</label><br>
+
+<input type="radio" id="ending" name="PlanningToVote" value="Unsure/Unsure if correctly registered" onclick="endMsg1Unsure(this);">
+  <label for="ending">Unsure/Unsure if correctly registered</label><br><br>
+
+</div>
+
+<div id="endMsg1" Style="display:none;">
+<label for="ending">Thank you for your time. Just one more question, are you planning to vote this November?</label><br>
+
+   <input type="radio" id="ending" name="PlanningToVote" value="yes" onclick="endMsg1Yes(this);">
+
+  <label for="ending">Yes</label><br>
+
+<input type="radio" id="ending" name="PlanningToVote" value="no" onclick="endMsg1No(this);">
+  <label for="ending">No</label><br><br>
+
+<input type="radio" id="ending" name="PlanningToVote" value="Unsure/Unsure if correctly registered" onclick="endMsg1Unsure(this);">
+  <label for="ending">Unsure/Unsure if correctly registered</label><br><br>
+
+
+</div>
+
+<div id= "notVoting" Style="display:none;">
+<p>It's important that all our voices are heard this election so I hope you change your mind about voting. Thank you again for answering our survey and have a great day!</p>
+
+</div>
+
+<div id="endMsg1UnsureMsg" Style="display:none;">
+<p>You can check easily at voterstatus.sos.ca.gov . If you are registered</p>
+</div>
+
+<div id="section12" Style="display:none;">
+<label for="sec12">Are you planning to support the Democratic Presidential nominee?</label><br>
+
+   <input type="radio" id="sec12" name="PlanningToSupport" value="yes" onclick="section12Yes(this);">
+
+  <label for="sec12">Yes</label><br>
+
+<input type="radio" id="sec12" name="PlanningToSupport" value="no" onclick="section12No(this);">
+  <label for="sec12">No/Undecided</label><br>
+</div>
+
+<div id="sec12Msg1" Style="display:none;">
+<br><p>That’s awesome to hear! I hope you have a great day today and thanks again for taking the time to answer our survey!</p><br>
+</div>
+
+<div id="sec12Msg2" Style="display:none;">
+<br><p>Thank you again for answering our survey and have a great day!</p><br>
+</div>
+
+
+<div id="section13" Style="display:none;">
+<label for="sec13">Would you like information on how to register to vote?</label><br>
+
+   <input type="radio" id="sec13" name="InformationOnRegistering" value="yes" onclick="section13Yes(this);">
+
+  <label for="sec13">Yes</label><br>
+
+<input type="radio" id="sec13" name="InformationOnRegistering" value="no" onclick="section13No(this);">
+  <label for="sec13">No</label><br>
+</div>
+
+<div id="sec13Msg" Style="display:none;">
+<br><p>Great! You can go to the California Secretary of State’s website to register online today. It should only take a few minutes but will have a monumental impact on this election. (wait for response if needed). Thank you again for taking the time to answer our survey and have a great time.</p><br>
+</div>
+
+
+<div id="endMsg2" Style="display:none;">
+<p>Sorry to bother you. Have a great day!</p>
+</div>
+
+
+<div id="endMsg" Style="display:block;">
+<br><input type="submit" value="Submit" onclick="save()" >
+<br /><br /><span style="color:red">* Note: </span>
+<span>Once you press Submit, the survey data will be emailed to Ben. The page will reload automatically and it will be ready for the next call.
+</span>
+<!—end message—>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+<script>
+
+var nameOfInterviewee="";
+var dataEntered="";
+
+function question2(opinion){
+        document.getElementById("section1").style.display="block";
+document.getElementById("endMsg2").style.display="none";
+}
+
+function answer2(opinion){
+        document.getElementById("endMsg2").style.display="block";
+}
+
+function section1Q1answer(answer){
+        document.getElementById("question2").style.display="block";
+}
+
+function section1DontCallAgain(answer){
+document.getElementById("endMsg2").style.display="block";
+}
+
+function section1Deceased(answer){
+        section1DontCallAgain(answer);
+}
+
+function section1CallLater(answer){
+        section1DontCallAgain(answer);
+}
+
+function section1WrongNumber(answer){
+        section1DontCallAgain(answer);
+}
+
+function section1DifferentLanguage(answer){
+       document.getElementById("endMsg2").style.display="block";
+}
+
+function section1DidNotPickUp(answer){
+        document.getElementById("endMsg2").style.display="block";
+}
+
+function section1Yes(LawEnforcementOnCampus){
+   document.getElementById("section2").style.display="block";
+}
+
+function section1Unsure(LawEnforcementOnCampus){  document.getElementById("section10").style.display="block";
+document.getElementById("section2").style.display="none";
+}
+
+function section1No(LawEnforcementOnCampus){
+document.getElementById("section10").style.display="block";
+document.getElementById("section2").style.display="none";
+}
+
+function section2Positive(OfficerCampusChange){
+document.getElementById("endMsg1").style.display="block";
+document.getElementById("section3").style.display="none";
+document.getElementById("section9").style.display="none";
+}
+
+function section2Unsure(OfficerCampusChange){
+document.getElementById("section3").style.display="block";
+document.getElementById("endMsg1").style.display="none";
+document.getElementById("section9").style.display="none";
+}
+
+function section2Negative(OfficerCampusChange){
+
+document.getElementById("section9").style.display="block";
+document.getElementById("endMsg1").style.display="none";
+document.getElementById("section3").style.display="none";
+}
+
+function section3Yes(Story){
+document.getElementById("section4").style.display="block";
+document.getElementById("endMsg1").style.display="none";
+}
+
+function section3No(Story){
+document.getElementById("endMsg1").style.display="block";
+document.getElementById("section4").style.display="none";
+}
+
+function section4Yes(StoryQ){
+
+document.getElementById("endMsg1").style.display="block";
+document.getElementById("section5").style.display="none";
+}
+
+function section4Unsure(StoryQ){
+document.getElementById("endMsg1").style.display="block";
+document.getElementById("section5").style.display="none";
+}
+
+function section4No(StoryQ){
+document.getElementById("section5").style.display="block";
+document.getElementById("endMsg1").style.display="none";
+}
+
+function section5Yes(ImpactOnStudentBody){
+document.getElementById("endMsg1").style.display="block";
+document.getElementById("section6").style.display="none";
+}
+
+function section5No(ImpactOnStudentBody){
+document.getElementById("section6").style.display="block";
+document.getElementById("endMsg1").style.display="none";
+}
+
+function section6Yes(HowPossible){
+document.getElementById("section7").style.display="block";
+document.getElementById("endMsg1").style.display="none";
+}
+
+function section6No(HowPossible){
+document.getElementById("endMsg1").style.display="block";
+document.getElementById("section7").style.display="none";
+}
+
+function section7Yes(InterestedNewsletter){
+document.getElementById("section8").style.display="block";
+
+}
+
+function section7No(InterestedNewsletter){
+document.getElementById("sec7siteMsg").style.display="block";
+}
+
+function section8(){
+var EmailVal= document.getElementById("bq1Ylv7Email").value;
+dataEntered= dataEntered + "Email : " + EmailVal + "<br /><br />";
+}
+
+
+function section10Positive(PoliceChangeCampus){
+document.getElementById("endMsg1").style.display="block";
+}
+
+function section10Unsure(PoliceChangeCampus){
+document.getElementById("section3").style.display="block";
+}
+
+function section10Negative(PoliceChangeCampus){
+document.getElementById("section11").style.display="block";
+}
+
+
+
+
+function endMsg1Yes(PlanningToVote){
+document.getElementById("section12").style.display="block";
+//document.getElementById("section13").style.display="none";
+var PlanningToVoteVal = PlanningToVote.value;
+dataEntered= dataEntered + "Are you planning to vote this November? : " + PlanningToVoteVal + "<br /><br />";
+}
+
+function endMsg1No(PlanningToVote){
+//document.getElementById("section13").style.display="block";
+document.getElementById("notVoting").style.display="block";
+var PlanningToVoteVal = PlanningToVote.value;
+dataEntered= dataEntered + "Are you planning to vote this November? : " + PlanningToVoteVal + "<br /><br />";
+}
+
+function endMsg1Unsure(PlanningToVote){
+document.getElementById("endMsg1UnsureMsg").style.display="block";
+document.getElementById("section12").style.display="block";
+document.getElementById("notVoting").style.display="none";
+var PlanningToVoteVal = PlanningToVote.value;
+dataEntered= dataEntered + "Are you planning to vote this November? : " + PlanningToVoteVal + "<br /><br />";
+
+}
+
+function section12Yes(PlanningToSupport){
+document.getElementById("sec12Msg1").style.display="block";
+document.getElementById("sec12Msg2").style.display="none";
+var PlanningToSupportVal = PlanningToSupport.value;
+dataEntered= dataEntered + "Are you planning to support the Democratic nominee? : " + PlanningToSupportVal + "<br /><br />";
+}
+
+function section12No(PlanningToSupport){
+document.getElementById("sec12Msg2").style.display="block";
+document.getElementById("sec12Msg1").style.display="none";
+var PlanningToSupportVal = PlanningToSupport.value;
+dataEntered= dataEntered + "Are you planning to support the Democratic nominee? : " + PlanningToSupportVal + "<br /><br />";
+}
+
+//function section13Yes(InformationOnRegistering){
+//document.getElementById("sec13Msg").style.display="block";
+//document.getElementById("sec12Msg2").style.display="none";
+//var InformationOnRegisteringVal = InformationOnRegistering.value;
+//dataEntered= dataEntered + "Would you like information on how to register to vote? : " + InformationOnRegisteringVal + "<br /><br />";
+//}
+
+//function section13No(InformationOnRegistering){
+//document.getElementById("sec12Msg2").style.display="block";
+//document.getElementById("sec13Msg").style.display="none";
+//var InformationOnRegisteringVal = InformationOnRegistering.value;
+//dataEntered= dataEntered + "Would you like information on how to register to vote? : " + InformationOnRegisteringVal + "<br /><br />";
+//}
+
+function endMsg(){
+var nameTextBoxVal=document.getElementById("endMsgTextBox").value;
+var numberTextBoxVal=document.getElementById("endMsgTextBox2").value;
+dataEntered= dataEntered + "Name : " + nameTextBoxVal + "<br /><br />" + "Phone Number : " + numberTextBoxVal + "<br /><br />";
+nameOfInterviewee=nameTextBoxVal;
+}
+
+
+function save(){
+  var d=new Date();
+  var timestamp = d.getFullYear().toString() + (d.getMonth()+1).toString() + d.getDate().toString() + d.getHours().toString() + d.getMinutes().toString();
+
+  var fileHeading = "SURVEY RESULTS FOR " + nameOfInterviewee + " ON " + d.getFullYear().toString() + (d.getMonth()+1).toString() + d.getDate().toString() + " AT " + d.getHours().toString() +":"+ d.getMinutes().toString();
+
+  var textToSave = fileHeading + "<br /><br />" + dataEntered;
+  var textToSaveAsBlob = new Blob([textToSave], {type:"text/plain"});
+  dataEntered="";
+  Email.send({
+    SecureToken : "7ca40223-5ebe-4d21-8e28-dd202833ff66",
+    To : "nehasunil1137@gmail.com",
+    From : "Survey.Sender.456@gmail.com",
+    Subject : "Survey Response",
+    Body : textToSave,
+  }).then(
+    message => clearpage()
+  );
+
+
+}
+function clearpage(){
+  location.reload();
+}
+
+
+</script>
+
+
+
+</body>
+
+</html>
